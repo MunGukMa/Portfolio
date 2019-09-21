@@ -1,0 +1,43 @@
+create table secondpj_member(
+userid varchar2(50) primary key,
+userpwd varchar2(50) not null,
+username varchar2(50) not null,
+address varchar2(500) not null,
+usertel varchar2(50) not null,
+registnumber varchar2(100),
+usertype varchar2(50) CONSTRAINT mb_chk check(usertype in('buyer','seller'))
+)
+
+create table secondpj_product(
+prdtnum number primary key,
+prdttype varchar2(50) not null,
+prdtname varchar2(300) not null,
+prdtweight varchar2(50) not null,
+prdtprice number not null,
+originalfilename varchar2(50) not null,
+savefilename varchar2(50) not null,
+prdtmemo varchar2(1000) not null,
+prdtview number default 0,
+prdtorder number default 0,
+sellerid varchar2(50) constraint sp_fk REFERENCES secondpj_member(userid) on delete  cascade,
+regdate date default sysdate)
+
+create sequence product_sq
+
+create table secondpj_orderlist(
+    ordernum number primary key,
+    prdtnum number CONSTRAINT ol_fk REFERENCES secondpj_product(prdtnum),
+    prdtname varchar2(300) not null,
+    prdtprice varchar2(100) not null,
+    orderqt number not null,
+    sellerid varchar2(50) not null,
+    buyerid varchar2(50) constraint ol_bid_fk REFERENCES secondpj_member(userid),
+    buyeraddress varchar2(50) not null,
+    buyertel varchar2(50) not null,
+    request varchar2(100) ,
+    shipstate varchar2(100) default '주문확인',
+    orderdate date default sysdate
+)
+
+
+create sequence list_seq

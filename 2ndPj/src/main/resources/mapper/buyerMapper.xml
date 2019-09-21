@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mun.guk.secondpj.dao.BuyerMapper">
+	<select id="selectone" parameterType="OrderVO" resultType="ProductVO">
+		select 
+			*
+		from
+			secondpj_product
+		where
+			prdtnum = #{prdtnum}
+	</select>
+	<insert id="goorder" parameterType="OrderVO">
+		insert into
+			secondpj_orderlist(
+				ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request)
+		values(
+			list_seq.nextval,#{prdtnum},#{prdtname},#{prdtprice},#{orderqt},#{sellerid},#{buyerid},#{buyeraddress},#{buyertel},#{request})
+	</insert>
+</mapper>

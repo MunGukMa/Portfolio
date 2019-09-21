@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mun.guk.secondpj.dao.HomeMapper">
+	<select id="setmainlist" parameterType="ProductVO" resultType="ProductVO">
+		select 
+			* 
+		from
+			(select 
+				rownum tempnum,b.* 
+			from
+				(select 
+					* 
+				from 
+					secondpj_product 
+				order by ${prdttype} desc
+				)b
+			)
+		where 
+			tempnum between 1 and 6
+	</select>
+
+	<select id="productread" parameterType="ProductVO" resultType="ProductVO">
+		select 
+			*
+		from 
+			secondpj_product
+		where
+			prdtnum = #{prdtnum}
+	</select>
+	
+	<update id="updateview" parameterType="ProductVO">
+		update secondpj_product set prdtview = prdtview+1 where prdtnum=#{prdtnum}
+	</update>
+	
+	<select id="productboard" parameterType="ProductVO" resultType="ProductVO">
+		select
+					*
+			from 
+					secondpj_product
+		<choose>
+			<when test="prdttype=='all'">
+				
+			</when>
+			<otherwise>
+				where
+					prdttype= #{prdttype}
+			</otherwise>
+		</choose>
+		order by prdtview desc		
+	</select>
+	
+	<select id="searchitem" parameterType="string" resultType="ProductVO">
+		select 
+			* 
+		from
+			secondpj_product
+		where
+			prdtname like '%'||#{value}||'%'
+	</select>
+	<select id="selectall" parameterType="MemberVO" resultType="OrderVO">
+		select 
+			*
+		from 
+			secondpj_orderlist
+		where 
+			buyerid = #{userid}
+	</select>
+</mapper>

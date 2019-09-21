@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="logImpl" value="log4j"/>
+	</settings>
+	<typeAliases>
+			<typeAlias type="mun.guk.secondpj.vo.MemberVO" alias="MemberVO"/>
+			<typeAlias type="mun.guk.secondpj.vo.ProductVO" alias="ProductVO"/>
+			<typeAlias type="mun.guk.secondpj.vo.OrderVO" alias="OrderVO"/>
+			<typeAlias type="mun.guk.secondpj.vo.ExcelVO" alias="ExcelVO"/>
+	</typeAliases>
+	<mappers>
+	 	<mapper resource="mapper/memberMapper.xml"/>
+	 	<mapper resource="mapper/sellerMapper.xml"/>
+	 	<mapper resource="mapper/homeMapper.xml"/>
+	 	<mapper resource="mapper/buyerMapper.xml"/>
+	 	<mapper resource="mapper/productMapper.xml"/>
+	</mappers>
+</configuration>

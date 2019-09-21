@@ -1,0 +1,113 @@
+
+
+insert into 
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview,prdtorder)
+values(product_sq.nextval,'test1','rice','100G',1000,'sample.png','sample.png',
+'test','seller',14,14)
+insert into 
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test2','rice','100G',1000,'sample.png','sample.png',
+'test','seller',10)
+insert into 
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test3','rice','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test4','rice','100G',1000,'sample.png','sample.png',
+'test','seller',20)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test5','rice','100G',1000,'sample.png','sample.png',
+'test','seller',25)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test6','fruit','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test7','fruit','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test8','fruit','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test9','fruit','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test10','fruit','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test11','mush','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test12','mush','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test13','mush','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test14','mush','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid,prdtview)
+values(product_sq.nextval,'test15','mush','100G',1000,'sample.png','sample.png',
+'test','seller',15)
+insert into
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','주문확인')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,20,'seller','buyer','코엑스','4444','test','주문확인')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,30,'seller','buyer','코엑스','4444','test','결제완료')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','결제완료')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','결제완료')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','배송준비')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','배송준비')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','배송준비')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','배송준비')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','배송준비')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','배송중')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','배송중')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','배송완료')
+secondpj_orderlist(
+ordernum,prdtnum,prdtname,prdtprice,orderqt,sellerid,buyerid,buyeraddress,buyertel,request,shipstate)
+values(
+list_seq.nextval,1,'test1',1000,10,'seller','buyer','코엑스','4444','test','배송완료')
+insert into
+			secondpj_member
+		values('buyer','123','seller','코엑스','1111',,'buyer')
+insert into
+			secondpj_member
+		values('seller','123','seller','seller','111','11111','seller')

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mun.guk.secondpj.dao.SellerMapper">
+	<insert id="registproduct" parameterType="ProductVO">
+		insert into 
+			secondpj_product(prdtnum,prdtname,prdttype,prdtweight,prdtprice,originalfilename,savefilename,prdtmemo,sellerid)
+		values(product_sq.nextval,#{prdtname},#{prdttype},#{prdtweight},#{prdtprice},#{orginalfilename},#{savefilename},
+		#{prdtmemo},#{sellerid})
+	</insert>
+	
+	<select id="setplist" parameterType="MemberVO" resultType="ProductVO">
+		select 
+			* 
+		from secondpj_product where sellerid = #{userid}  order by regdate desc
+	</select>
+	
+	<select id="setslist" parameterType="MemberVO" resultType="OrderVO">
+		select 
+			* 
+		from 
+			secondpj_orderlist 
+		where 
+			sellerid = #{userid}  
+		order by orderdate desc
+	</select>
+	
+	<select id="sortlist" parameterType="Map" resultType="ProductVO">
+		select 
+			*
+		from 
+			secondpj_product
+		where 
+			sellerid = #{userid}
+		order by ${searchkey} ${sorttype}
+	</select>
+	
+	<select id="selectone" parameterType="ProductVO" resultType="ProductVO">
+		select
+			*
+		from
+			secondpj_product
+		where 
+			prdtnum = #{prdtnum}
+	</select>
+	
+	<select id="totalorder">
+		select count(so.ordernum),sp.prdtnum 
+		from secondpj_orderlist so,secondpj_product sp 
+		where so.prdtnum = sp.prdtnum
+		group by sp.prdtnum
+	</select>
+	<select id="totalend" parameterType="ProductVO" resultType="ProductVO">
+		select 
+			count(shipstate)"prdtorder",prdtnum 
+		from 
+			secondpj_orderlist 
+		where 
+			shipstate='배송완료' and prdtnum=#{prdtnum}
+		GROUP by prdtnum
+	</select>
+	<select id="totalpro" parameterType="ProductVO" resultType="ProductVO">
+		select 
+			count(shipstate)"prdtorder",prdtnum 
+		from 
+			secondpj_orderlist 
+		where 
+			shipstate='배송중' and prdtnum=#{prdtnum}
+		GROUP by prdtnum
+	</select>
+	<select id="totalready" parameterType="ProductVO" resultType="ProductVO">
+		select 
+			count(shipstate)"prdtorder",prdtnum 
+		from 
+			secondpj_orderlist 
+		where 
+			shipstate='배송준비' and prdtnum=#{prdtnum}
+		GROUP by prdtnum
+	</select>
+	<select id="totalpay" parameterType="ProductVO" resultType="ProductVO">
+		select 
+			count(shipstate)"prdtorder",prdtnum 
+		from 
+			secondpj_orderlist 
+		where 
+			shipstate='결제완료' and prdtnum=#{prdtnum}
+		GROUP by prdtnum
+	</select>
+	<select id="totalconf" parameterType="ProductVO" resultType="ProductVO">
+		select 
+			count(shipstate)"prdtorder",prdtnum 
+		from 
+			secondpj_orderlist 
+		where 
+			shipstate='주문확인' and prdtnum=#{prdtnum}
+		GROUP by prdtnum
+	</select>
+	<select id="totalqt" parameterType="ProductVO" resultType="OrderVO">
+		select sum(orderqt)"orderqt"
+        from secondpj_orderlist
+        where prdtnum = #{prdtnum}
+        group by prdtnum
+	</select>
+	<select id="detailship" parameterType="OrderVO" resultType="OrderVO">
+		select 
+			*
+		from 
+			secondpj_orderlist
+		where  
+			prdtnum = #{prdtnum}
+		<choose>
+			 <when test="shipstate!='all'">
+			 	and	shipstate=#{shipstate}
+			 </when>
+		</choose>
+	</select>
+	<select id="getlist" parameterType="hashmap" resultType="ExcelVO">
+		select 
+			buyerid"name",buyeraddress"addressnum",buyeraddress"address",buyertel"tel",prdtname"title"
+		from 
+			secondpj_orderlist	
+		where
+			ordernum in
+		<foreach collection="list" item="item" separator="," open="(" close=")" >
+			#{item}
+		</foreach>
+	</select>
+</mapper>
